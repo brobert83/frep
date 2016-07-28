@@ -1,3 +1,5 @@
+require 'release/util/utilities'
+
 class ReleaseProcess
 
   include Utilities
