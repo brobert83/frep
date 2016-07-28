@@ -1,0 +1,46 @@
+Rebase master and develop:
+  - git checkout master
+  - git pull
+  - git checkout develop
+  - git pull
+Do a clean install before doing any changes:
+  - mvn clean install
+Create the release branch from develop:
+  - git checkout -b %{release_branch} develop
+Changing maven version to %{release_version}:
+  - mvn versions:set -DnewVersion=%{release_version}
+Change snapshot versions to release versions:
+  - $$set_release_versions
+Commit version change:
+  - git add pom.xml
+  - git commit -m "Updated pom version to %{release_version}"
+Switching to master branch:
+  - git checkout master
+Merge %{release_branch} into master:
+  - git merge --no-ff %{release_branch} --commit -m "Merge %{release_branch} into master" --log
+Tag the release %{release_version}:
+  - git tag -a %{release_version} -m "%{release_version}"
+Switch on develop branch:
+  - git checkout develop
+Merge release branch into develop:
+  - git merge --no-ff %{release_branch} --commit -m "Merge %{release_branch} into develop" --log
+Remove the release branch %{release_branch}:
+  - git branch -d %{release_branch}
+Push master to origin:
+  - git push origin master
+Push develop to origin:
+  - git push origin develop
+Push tags to origin:
+  - git push --tag
+Deploy to Nexus:
+  - mvn clean deploy
+Preparing for next iteration, increase version number to %{next_version}:
+  - mvn versions:set -DnewVersion=%{next_version}
+Increase internal dependencies to latest SNAPSHOT versions:
+  - $$set_snapshot_versions
+Commit changes to pom.xml:
+  - git add pom.xml
+  - git commit -m "[Prepare for next iteration] Increasing version number to %{next_version}"
+  - git push origin develop
+Summary:
+  - $$show_summary
