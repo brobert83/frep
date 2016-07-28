@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'frep'
-  s.version     = '0.0.4'
+  s.version     = '1.0.0'
   s.date        = '2016-07-28'
   s.summary     = "Friendly RElease Process"
   s.description = "Customizable release process for Java applications in principal"

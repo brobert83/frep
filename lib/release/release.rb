@@ -1,4 +1,5 @@
 require 'yaml'
+require 'release/util/utilities'
 
 class Release
 

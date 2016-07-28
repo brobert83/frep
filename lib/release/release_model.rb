@@ -1,4 +1,5 @@
 require 'rexml/document'
+require 'release/util/utilities'
 
 $snapshot_dependency=/<(.+version)>(.+\-SNAPSHOT)<\//
 $snapshot_version=/(.+)\-SNAPSHOT/
