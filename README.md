@@ -1,5 +1,6 @@
 # frep
-https://badge.fury.io/rb/frep.svg
+[![Gem Version](https://badge.fury.io/rb/frep.svg)](https://badge.fury.io/rb/frep)
+
 Friendly RElease Process
 
 push to rubygems.org:
