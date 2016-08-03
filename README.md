@@ -6,7 +6,18 @@
 
 Friendly RElease Process
 
-push to rubygems.org:
+
+# build gem:
+
+```gem build frep.gemspec```
+
+# install gem
+
+```gem install frep-1.0.0.gem```
+
+# push to rubygems.org:
  
 ```gem push frep-${version}.gem```
+
+
 

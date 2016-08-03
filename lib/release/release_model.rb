@@ -27,9 +27,7 @@ class ReleaseModel
 
     echo_with_color "\n\n====================Release information========================================================",'green'
     puts "\nDry run: #{@dry_run}"
-    if @dry_run
-      help_info "---> IMPORTANT: Dry run will still change the snapshot dependencies versions (if any), don't forget to revert those changes\n"
-    end
+    help_info "---> IMPORTANT: Dry run will still change the snapshot dependencies versions (if any), don't forget to revert those changes\n" if @dry_run
 
     help_info "\n1. Release version: "; puts release_version
     help_info "\n2. Next snapshot version: ";puts next_version
@@ -58,9 +56,8 @@ class ReleaseModel
   end
 
   def read_snapshot_versions
-    unless @snapshots
-      return
-    end
+
+    return unless @snapshots
 
     help_info "\n\nFound dependencies with SNAPSHOT versions:"
     @snapshots.each do |snapshot|
@@ -71,9 +68,8 @@ class ReleaseModel
   end
 
   def prepare_new_iteration_deps
-    unless @snapshots
-      return
-    end
+
+    return unless @snapshots
 
     help_info "\n\nSet SNAPSHOT versions for dependencies for the next iteration"
     @snapshots.each do |snapshot|
