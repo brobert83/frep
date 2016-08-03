@@ -8,7 +8,7 @@ module Utilities
   end
 
   def terminate
-    abort 'Program terminated'
+    abort "\nProgram terminated"
   end
 
   def help_info(text)
@@ -33,11 +33,9 @@ module Utilities
     echo_with_color "#{question} #{suggestion} : ", 'green'
     $stdout.flush
 
-    answer = gets.chomp
+    answer = $stdin.gets.chomp
 
-    unless answer == ''
-      return answer
-    end
+    return answer unless answer == ''
 
     echo_with_color suggestion, 'yellow'
     suggestion

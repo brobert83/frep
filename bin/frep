@@ -2,4 +2,4 @@
 
 require 'frep'
 
-Frep.doit
+Frep.doit ARGV[0]

@@ -12,9 +12,7 @@ class ReleaseProcess
 
   def show_summary
 
-    if @summary.size==0
-      return
-    end
+    return if @summary.size==0
 
     help_info "\nSummary"
 
@@ -38,9 +36,7 @@ class ReleaseProcess
         eval("#{internal_method_call}")
       else
         log_commands << command
-        unless @dry_run
-          system(command)
-        end
+        system(command) unless @dry_run
       end
 
     end

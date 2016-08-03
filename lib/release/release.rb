@@ -16,6 +16,7 @@ class Release
 
     release = ReleaseProcess.new(@release_model.dry_run, @release_model.snapshots)
 
+    help_info "Loading release definition at #{yaml_path}\n"
     config = YAML::load_file(yaml_path)
 
     index=1
